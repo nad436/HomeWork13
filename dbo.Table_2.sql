@@ -1,7 +1,10 @@
-﻿CREATE TABLE Enrollments (
-    EnrollmentID INT PRIMARY KEY,
-    StudentID INT,
-    CourseID INT,
-    FOREIGN KEY (StudentID) REFERENCES Students(StudentID) ON DELETE CASCADE,
-    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID) ON DELETE CASCADE
+﻿CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    LastName NVARCHAR(50),
+    BirthDate DATE,
+    EnrollmentDate DATE,
+    IsActive BIT
 );
+
+GO
+CREATE NONCLUSTERED INDEX IX_LastName ON Students(LastName);
